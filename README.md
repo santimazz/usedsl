@@ -2,7 +2,7 @@
 
 This repository hosts the proof-of-concept implementation of the Bachelor thesis "A Lightweight Domain-Specific Language for Teaching - DSL for Use Cases with Karpfen toolset", submitted October 14, 2026.
 
-The use case grammar can be found in [src/main/antlr/usecase.g4](src/main/antlr/usecase.g4). The sample use case from the thesis' concept chapter is also included in [src/main/example_models/lamp_example.usecase](src/main/example_models/lamp_example.usecase), along with the demo lightbulb metamodel. The main class for this project is based on the Karpfen Connector repository.
+The use case grammar can be found in [src/main/antlr/usecase.g4](src/main/antlr/usecase.g4). The sample use case from the thesis' concept chapter is also included in [src/main/example_models/lamp_example.usecase](src/main/example_models/lamp_example.usecase), along with the demo lightbulb metamodel. The main class for this project is based on that of the Karpfen Connector repository.
 
 ## Requirements
 
@@ -11,3 +11,21 @@ A Maven installation, as well as a working [Karpfen Runtime](https://github.com/
 ## Getting Started
 
 Still needs to be cleaned up! Uploaded earlier on the 14th in case anything happens.
+
+
+## Grammar Guide
+
+Use cases are specified in the following manner:
+```
+Usecase UC<int> <string> (
+Description: <string>
+Scope: <string>
+Actors: <string>,*
+Preconditions:
+    <condition>*
+Flow <string>:
+    <step>*
+Postconditions:
+    <condition>*
+)
+```
