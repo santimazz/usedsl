@@ -1,0 +1,25 @@
+Usecase UC1 "Turn light on" (
+Description: "The user sends an objectChanged event, and the light turns on, then off"
+Scope: "Room"
+Actors: "Room", "light"
+Preconditions:
+    Entity "light" is in state "light_off"
+    Property "is_on" for entity "light" equal to "false"
+Flow "Regular":
+    1) User performs action "movement detected" with property "duration" equal to "4.0"
+    2) Entity "light" transitions to state "movement_detected"
+    3) Entity "light" transitions to state "light_on"
+    4) Property "is_on" for entity "light" equal to "true"
+    5) Entity "light" transitions to state "light_off"
+Flow "Timer":
+    1) User performs action "movement detected" with property "duration" equal to "4.0"
+    2) Entity "light" transitions to state "movement_detected"
+    3) Entity "light" transitions to state "light_on"
+    4) Property "timer" for entity "light" is greater than "0"
+    5) Property "is_on" for entity "light" equal to "true"
+    6) Property "timer" for entity "light" is less than "5"
+    7) Entity "light" transitions to state "light_off"
+Postconditions:
+    Entity "light" is in state "light_off"
+    Property "is_on" for entity "light" equal to "false"
+)
